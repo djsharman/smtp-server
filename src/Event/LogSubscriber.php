@@ -21,7 +21,7 @@ class LogSubscriber implements EventSubscriberInterface
      * LogSubscriber constructor.
      * @param LoggerInterface $logger
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct($logger)
     {
         $this->logger = $logger;
     }
