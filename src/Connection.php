@@ -414,7 +414,14 @@ class Connection extends Stream implements ConnectionInterface
      */
     protected function handleAuthCommand($method)
     {
-        list($method, $token) = explode(' ', trim($method), 2);
+
+        $token = null;
+        $method = trim($method);
+
+        // only try to get the token if it exists.
+        if(strpos(' ', $method) !== false) {
+            list($method, $token) = explode(' ', $method, 2);
+        }
 
         switch (strtoupper($method)) {
             case self::AUTH_METHOD_PLAIN:
